@@ -1,17 +1,5 @@
-# import random
-
-# a_z_list = [chr(i) for i in range(65, 91)] 
-# print(a_z_list)
-
-# dfe_list = [random.choice(a_z_list) for i in range(1, random.randint(1, len(a_z_list)))]
-# print(dfe_list)
-
-# # sbj_list = 
-# for i in range(1, random.randint(1, len(dfe_list))):
-
 import random
 import time
-
 
 num_of_alphabet = 26 #全アルファベット数
 num_of_all_chars = 10 #対象文字数

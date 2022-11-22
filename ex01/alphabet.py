@@ -23,10 +23,12 @@ def shutudai(alphabet):
     print()
 
     print("表示文字：")
-    for c in all_chars:
-        #ans_charsに含まれていなければ表示文字として表示
-        if c not in abs_chars:
-            print(c, end=" ")
+    [print(c, end="") for c in all_chars if c not in abs_chars]
+    #修正前のfor文
+    # for c in all_chars:
+    #     #ans_charsに含まれていなければ表示文字として表示
+    #     if c not in abs_chars:
+    #         print(c, end=" ")
     print()
     return abs_chars
 

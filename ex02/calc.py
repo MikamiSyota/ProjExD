@@ -39,10 +39,10 @@ def button_click(event):
             entry.insert(tk.END, hex(int(siki))) # 結果の挿入
         else:
             entry.insert(tk.END, i)
-    elif i == "⑩":
-        siki = entry.get() # 数式の文字列
-        entry.delete(0, tk.END) # 表示文字列の削除
-        entry.insert(tk.END, int(siki)) # 結果の挿入
+    # elif i == "⑩":
+    #     siki = entry.get() # 数式の文字列
+    #     entry.delete(0, tk.END) # 表示文字列の削除
+    #     entry.insert(tk.END, int(siki)) # 結果の挿入
     else:
         entry.insert(tk.END, i)
 
@@ -64,15 +64,5 @@ for i in [7, 8, 9, "÷", 4, 5, 6, "x", 1, 2, 3, "-", "c", 0, "=", "+", "②", "�
     if c % 4 == 0:
         r += 1
         c = 0
-
-# operators = ["+", "="]
-# for ad_pl in operators:
-#     button = tk.Button(root, text=f"{ad_pl}", width=4, height=2, font=("", 30))
-#     button.grid(row=r, column=c)
-#     button.bind("<1>", button_click)
-#     c += 1
-#     if c%3 == 0:
-#         r += 1
-#         c = 0
 
 root.mainloop()

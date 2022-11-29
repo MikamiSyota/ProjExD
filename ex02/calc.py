@@ -38,10 +38,6 @@ def button_click(event):
             entry.insert(tk.END, hex(int(siki))) # 結果の挿入
         else:
             entry.insert(tk.END, i)
-    # elif i == "⑩":
-    #     siki = entry.get() # 数式の文字列
-    #     entry.delete(0, tk.END) # 表示文字列の削除
-    #     entry.insert(tk.END, int(siki)) # 結果の挿入
     else:
         entry.insert(tk.END, i)
 

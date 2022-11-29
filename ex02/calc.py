@@ -13,11 +13,16 @@ def button_click(event):
     elif i == "c":
         entry.delete(0, tk.END)
     elif i == "x":
-        entry.insert(tk.END, i)
         i = "*"
-    elif i == "÷":
         entry.insert(tk.END, i)
+    elif i == "÷":
         i = "/"
+        entry.insert(tk.END, i)
+    # elif i == "②":
+    #     siki = entry.get() # 数式の文字列
+    #     if type(siki) == str:
+    #         entry.delete(0, tk.END) # 表示文字列の削除
+    #     entry.insert(tk.END, bin(siki)) # 結果の挿入
     else:
         entry.insert(tk.END, i)
 
@@ -30,8 +35,8 @@ entry.grid(row=0, column=0, columnspan=4)
 
 r = 1
 c = 0
-for i in [7, 8, 9, "÷", 4, 5, 6, "x", 1, 2, 3, "-", "c", 0, "=", "+"]:
-    button = tk.Button(root, text=f"{i}", width=4, height=3, font=("", 20))
+for i in [7, 8, 9, "÷", 4, 5, 6, "x", 1, 2, 3, "-", "c", 0, "=", "+", "②", "⑧", "⑯"]:
+    button = tk.Button(root, text=f"{i}", width=4, height=2, font=("", 20))
     button.grid(row=r, column=c)
     button.bind("<1>", button_click)
     button.grid()

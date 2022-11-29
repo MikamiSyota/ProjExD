@@ -50,7 +50,7 @@ entry.grid(row=0, column=0, columnspan=4)
 
 r = 1
 c = 0
-for i in [7, 8, 9, "÷", 4, 5, 6, "x", 1, 2, 3, "-", "c", 0, "=", "+", "②", "⑧", "⑯", "⑩"]:
+for i in [7, 8, 9, "÷", 4, 5, 6, "x", 1, 2, 3, "-", "c", 0, "=", "+", "②", "⑧", "⑯", " "]:
     button = tk.Button(root, text=f"{i}", width=4, height=2, font=("", 20))
     button.grid(row=r, column=c)
     button.bind("<1>", button_click)

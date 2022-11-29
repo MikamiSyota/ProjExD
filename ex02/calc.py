@@ -6,7 +6,10 @@ def button_click(event):
     i = btn["text"]
     # tkm.showinfo(i, f"[{i}]ボタンがクリックされました")
     if i == "=":
-        None
+        siki = entry.get() # 数式の文字列
+        res = eval(siki) # 数式文字列の評価
+        entry.delete(0, tk.END) # 表示文字列の削除
+        entry.insert(tk.END, res) # 結果の挿入
     else:
         entry.insert(tk.END, i)
 

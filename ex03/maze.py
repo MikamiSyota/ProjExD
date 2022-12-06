@@ -30,12 +30,14 @@ if __name__ == "__main__":
     root.title("迷えるこうかとん")
     canvas = tk.Canvas(root, width=1500, height=900, bg="black")
     canvas.pack()
+    lavel = tk.Label(root, text="S", font=("", 20))
+    lavel.pack()
 
     maze_lst = mm.make_maze(15, 9)
     # print(maze_lst)
     mm.show_maze(canvas, maze_lst)
 
-    kokaton = tk.PhotoImage(file="../fig/8.png")
+    kokaton = tk.PhotoImage(file="../fig/6.png")
 
     mx = 1
     my = 1

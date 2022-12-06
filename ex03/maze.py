@@ -68,6 +68,7 @@ if __name__ == "__main__":
     c1y = m1y*100+50
     c2x = m2x*100+50
     c2y = m2y*100+50
+    
     canvas.create_image(c1x, c1y, image=kokaton1, tag="kokaton1")
     canvas.create_image(c2x, c2y, image=kokaton2, tag="kokaton2")
     key = ""

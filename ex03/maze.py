@@ -16,8 +16,7 @@ def main_proc1():
     if key == "Left": m1x -= 1
     if key == "Right": m1x += 1
     if key == "s":
-        m1x = 1
-        m1y = 1
+        m1x, m1y = 1, 1
     if maze_lst[m1x][m1y] == 1: #移動先が壁だったら
         if key == "Up": m1y += 1
         if key == "Down": m1y -= 1
@@ -35,8 +34,7 @@ def main_proc2():
     if key == "j": m2x -= 1
     if key == "l": m2x += 1
     if key == "g":
-        m2x = 13
-        m2y = 7
+        m2x, m2y = 13, 7
     if maze_lst[m2x][m2y] == 1: #移動先が壁だったら
         if key == "i": m2y += 1
         if key == "m": m2y -= 1
@@ -59,10 +57,8 @@ if __name__ == "__main__":
     kokaton1 = tk.PhotoImage(file="../fig/6.png")
     kokaton2 = tk.PhotoImage(file="../fig/2.png")
 
-    m1x = 1
-    m1y = 1
-    m2x = 13
-    m2y = 7
+    m1x, m1y  = 1, 1
+    m2x, m2y = 13, 7
     c1x = m1x*100+50
     c1y = m1y*100+50
     c2x = m2x*100+50

@@ -14,6 +14,8 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
+# def change_speed()
+
 def game_over():
     #ゲームオーバー時に画像を出力する処理
     clock = pg.time.Clock()
@@ -52,8 +54,7 @@ def main():
     bomb_rct.centery = random.randint(0, scrn_rct.height)
     scrn_sfc.blit(bomb_sfc, bomb_rct)
 
-    vx, vy = +1, +1
-
+    vx, vy = +1.5, +1.5
     # 2
     while True:
         scrn_sfc.blit(pgbg_sfc, pgbg_rct)

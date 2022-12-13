@@ -1,11 +1,13 @@
 import pygame as pg
 import sys
+import random
 
 def main():
     clock = pg.time.Clock()
     # 1
     pg.display.set_caption("逃げろ！こうかとん")
     scrn_sfc = pg.display.set_mode((1600, 900))
+    scrn_rct = scrn_sfc.get_rect()
     pgbg_sfc = pg.image.load("fig/pg_bg.jpg")
     pgbg_rct = pgbg_sfc.get_rect()
 
@@ -16,6 +18,15 @@ def main():
     tori_rct.center = 900, 400
     scrn_sfc.blit(tori_sfc, tori_rct)
 
+    # 5
+    bomb_sfc = pg.Surface((20, 20))
+    bomb_sfc.set_colorkey((0, 0, 0))
+    pg.draw.circle(bomb_sfc, (255, 0, 0), (10, 10), 10)
+    bomb_rct = bomb_sfc.get_rect()
+    bomb_rct.centerx = random.randint(0, scrn_rct.width)
+    bomb_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(bomb_sfc, bomb_rct)
+
     # 2
     while True:
         scrn_sfc.blit(pgbg_sfc, pgbg_rct)
@@ -25,6 +36,7 @@ def main():
                 return
 
         key_dct = pg.key.get_pressed() #辞書型
+        # 4
         if key_dct[pg.K_UP]:
             tori_rct.centery -= 1
         if key_dct[pg.K_DOWN]:
@@ -35,6 +47,7 @@ def main():
             tori_rct.centerx += 1
         scrn_sfc.blit(tori_sfc, tori_rct) #これで新しい座標を貼り付け
 
+        scrn_sfc.blit(bomb_sfc, bomb_rct)
 
         pg.display.update()
         clock.tick(1000)

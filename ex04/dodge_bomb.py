@@ -46,15 +46,18 @@ def main():
     scrn_sfc.blit(tori_sfc, tori_rct)
 
     # 5
-    bomb_sfc = pg.Surface((20, 20))
+    bomb_sfc = pg.Surface((60, 60))
     bomb_sfc.set_colorkey((0, 0, 0))
-    pg.draw.circle(bomb_sfc, (255, 0, 0), (10, 10), 10)
+    #爆弾の大きさを30に変更
+    pg.draw.circle(bomb_sfc, (255, 0, 0), (30, 30), 30)
     bomb_rct = bomb_sfc.get_rect()
     bomb_rct.centerx = random.randint(0, scrn_rct.width)
     bomb_rct.centery = random.randint(0, scrn_rct.height)
     scrn_sfc.blit(bomb_sfc, bomb_rct)
 
+    #爆弾の側を1.5に変更
     vx, vy = +1.5, +1.5
+    
     # 2
     while True:
         scrn_sfc.blit(pgbg_sfc, pgbg_rct)

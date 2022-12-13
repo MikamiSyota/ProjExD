@@ -147,16 +147,7 @@ def main():
     #爆弾の側を1.5に変更
     vx, vy = +1.5, +1.5
 
-    coin1_flag = True
-    coin2_flag = True
-    coin3_flag = True
-    coin4_flag = True
-    coin5_flag = True
-    coin6_flag = True
-    coin7_flag = True
-    coin8_flag = True
-    coin9_flag = True
-    coin10_flag = True
+    coin1_flag, coin2_flag, coin3_flag, coin4_flag, coin5_flag, coin6_flag, coin7_flag, coin8_flag, coin9_flag, coin10_flag = True, True, True, True, True, True, True, True, True, True
 
     
     # 2

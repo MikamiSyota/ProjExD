@@ -244,6 +244,10 @@ def main():
         if tori_rct.colliderect(coin10_rct):
             coin10_flag = False
 
+        if (coin1_flag == False) and (coin2_flag == False) and (coin3_flag == False) and (coin4_flag == False) and (coin5_flag == False) and (coin6_flag == False) and (coin7_flag == False) and (coin8_flag == False) and (coin9_flag == False) and (coin10_flag == False):
+            clock.tick(1)
+            return
+
 
 
         pg.display.update()

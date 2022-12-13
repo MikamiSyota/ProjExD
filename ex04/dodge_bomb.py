@@ -15,6 +15,7 @@ def check_bound(obj_rct, scr_rct):
     return yoko, tate
 
 def game_over():
+    #ゲームオーバー時に画像を出力する処理
     clock = pg.time.Clock()
     pg.display.set_caption("こうかとん、死す。")
     scrn_sfc = pg.display.set_mode((1600, 900))
@@ -25,8 +26,6 @@ def game_over():
     scrn_sfc.blit(img_sfc, img_rct)
     pg.display.update()
     clock.tick(0.3)
-
-
 
 def main():
     clock = pg.time.Clock()

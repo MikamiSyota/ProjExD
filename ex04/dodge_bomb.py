@@ -72,11 +72,18 @@ def main():
 
         # 6
         bomb_rct.move_ip(vx, vy)
+        scrn_sfc.blit(bomb_sfc, bomb_rct)
         yoko, tate = check_bound(bomb_rct, scrn_rct)
         vx *= yoko
         vy *= tate
-        bomb_rct.move_ip(vx, vy)
-        scrn_sfc.blit(bomb_sfc, bomb_rct)
+        # bomb_rct.move_ip(vx, vy)
+        # scrn_sfc.blit(bomb_sfc, bomb_rct)
+        
+        # 8
+        if tori_rct.colliderect(bomb_rct):
+            clock.tick(1)
+            return
+
         pg.display.update()
         clock.tick(1000)
 

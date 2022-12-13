@@ -59,6 +59,15 @@ def main():
             tori_rct.centerx -= 1
         if key_dct[pg.K_RIGHT]:
             tori_rct.centerx += 1
+        if check_bound(tori_rct, scrn_rct) != (+1, +1):
+            if key_dct[pg.K_UP]:
+                tori_rct.centery += 1
+            if key_dct[pg.K_DOWN]:
+                tori_rct.centery -= 1
+            if key_dct[pg.K_LEFT]:
+                tori_rct.centerx += 1
+            if key_dct[pg.K_RIGHT]:
+                tori_rct.centerx -= 1
         scrn_sfc.blit(tori_sfc, tori_rct) #これで新しい座標を貼り付け
 
         # 6

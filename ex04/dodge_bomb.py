@@ -146,7 +146,8 @@ def main():
 
     #爆弾の側を1.5に変更
     vx, vy = +1.5, +1.5
-
+    
+    # コインを取ったかどうかを判定するためのflag
     coin1_flag, coin2_flag, coin3_flag, coin4_flag, coin5_flag, coin6_flag, coin7_flag, coin8_flag, coin9_flag, coin10_flag = True, True, True, True, True, True, True, True, True, True
 
     
@@ -214,6 +215,7 @@ def main():
             game_over()
             return
         
+        # コインに接触したらflagをFalseにして、表示されないようにする
         if tori_rct.colliderect(coin1_rct):
             coin1_flag = False
         if tori_rct.colliderect(coin2_rct):
@@ -235,11 +237,10 @@ def main():
         if tori_rct.colliderect(coin10_rct):
             coin10_flag = False
 
+        # 全てのコインに接触したら終了
         if (coin1_flag == False) and (coin2_flag == False) and (coin3_flag == False) and (coin4_flag == False) and (coin5_flag == False) and (coin6_flag == False) and (coin7_flag == False) and (coin8_flag == False) and (coin9_flag == False) and (coin10_flag == False):
             clock.tick(1)
             return
-
-
 
         pg.display.update()
         clock.tick(1000)

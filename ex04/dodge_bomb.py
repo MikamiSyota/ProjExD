@@ -14,6 +14,20 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
+def game_over():
+    clock = pg.time.Clock()
+    pg.display.set_caption("こうかとん、死す。")
+    scrn_sfc = pg.display.set_mode((1600, 900))
+    scrn_rct = scrn_sfc.get_rect()
+    img_sfc = pg.image.load("fig/game_over.jpg")
+    img_sfc = pg.transform.scale(img_sfc, (1600, 900))
+    img_rct = img_sfc.get_rect()
+    scrn_sfc.blit(img_sfc, img_rct)
+    pg.display.update()
+    clock.tick(0.3)
+
+
+
 def main():
     clock = pg.time.Clock()
     # 1
@@ -82,6 +96,7 @@ def main():
         # 8
         if tori_rct.colliderect(bomb_rct):
             clock.tick(1)
+            game_over()
             return
 
         pg.display.update()

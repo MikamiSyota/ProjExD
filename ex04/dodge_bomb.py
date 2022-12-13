@@ -14,8 +14,6 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
-# def change_speed()
-
 def game_over():
     #ゲームオーバー時に画像を出力する処理
     clock = pg.time.Clock()
@@ -55,8 +53,111 @@ def main():
     bomb_rct.centery = random.randint(0, scrn_rct.height)
     scrn_sfc.blit(bomb_sfc, bomb_rct)
 
+    # 10個のコインを設置。
+    coin1_sfc = pg.Surface((80, 80))
+    coin1_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin1_sfc, (255, 255, 0), (40, 40), 40)
+    coin1_rct = coin1_sfc.get_rect()
+    coin1_rct.centerx = random.randint(0, scrn_rct.width)
+    coin1_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin1_sfc, coin1_rct)
+
+    coin2_sfc = pg.Surface((80, 80))
+    coin2_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin2_sfc, (255, 255, 0), (40, 40), 40)
+    coin2_rct = coin2_sfc.get_rect()
+    coin2_rct.centerx = random.randint(0, scrn_rct.width)
+    coin2_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin2_sfc, coin2_rct)
+
+    coin3_sfc = pg.Surface((80, 80))
+    coin3_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin3_sfc, (255, 255, 0), (40, 40), 40)
+    coin3_rct = coin3_sfc.get_rect()
+    coin3_rct.centerx = random.randint(0, scrn_rct.width)
+    coin3_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin3_sfc, coin3_rct)
+
+    coin4_sfc = pg.Surface((80, 80))
+    coin4_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin4_sfc, (255, 255, 0), (40, 40), 40)
+    coin4_rct = coin4_sfc.get_rect()
+    coin4_rct.centerx = random.randint(0, scrn_rct.width)
+    coin4_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin4_sfc, coin4_rct)
+
+    coin5_sfc = pg.Surface((80, 80))
+    coin5_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin5_sfc, (255, 255, 0), (40, 40), 40)
+    coin5_rct = coin5_sfc.get_rect()
+    coin5_rct.centerx = random.randint(0, scrn_rct.width)
+    coin5_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin5_sfc, coin5_rct)
+
+    coin6_sfc = pg.Surface((80, 80))
+    coin6_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin6_sfc, (255, 255, 0), (40, 40), 40)
+    coin6_rct = coin6_sfc.get_rect()
+    coin6_rct.centerx = random.randint(0, scrn_rct.width)
+    coin6_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin6_sfc, coin6_rct)
+
+    coin7_sfc = pg.Surface((80, 80))
+    coin7_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin7_sfc, (255, 255, 0), (40, 40), 40)
+    coin7_rct = coin7_sfc.get_rect()
+    coin7_rct.centerx = random.randint(0, scrn_rct.width)
+    coin7_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin7_sfc, coin7_rct)
+
+    coin8_sfc = pg.Surface((80, 80))
+    coin8_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin8_sfc, (255, 255, 0), (40, 40), 40)
+    coin8_rct = coin8_sfc.get_rect()
+    coin8_rct.centerx = random.randint(0, scrn_rct.width)
+    coin8_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin8_sfc, coin8_rct)
+
+    coin9_sfc = pg.Surface((80, 80))
+    coin9_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin9_sfc, (255, 255, 0), (40, 40), 40)
+    coin9_rct = coin9_sfc.get_rect()
+    coin9_rct.centerx = random.randint(0, scrn_rct.width)
+    coin9_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin9_sfc, coin9_rct)
+
+    coin10_sfc = pg.Surface((80, 80))
+    coin10_sfc.set_colorkey((0, 0, 0))
+    #コインの大きさを40に指定
+    pg.draw.circle(coin10_sfc, (255, 255, 0), (40, 40), 40)
+    coin10_rct = coin10_sfc.get_rect()
+    coin10_rct.centerx = random.randint(0, scrn_rct.width)
+    coin10_rct.centery = random.randint(0, scrn_rct.height)
+    scrn_sfc.blit(coin10_sfc, coin10_rct)
+
     #爆弾の側を1.5に変更
     vx, vy = +1.5, +1.5
+
+    coin1_flag = True
+    coin2_flag = True
+    coin3_flag = True
+    coin4_flag = True
+    coin5_flag = True
+    coin6_flag = True
+    coin7_flag = True
+    coin8_flag = True
+    coin9_flag = True
+    coin10_flag = True
+
     
     # 2
     while True:
@@ -90,6 +191,26 @@ def main():
         # 6
         bomb_rct.move_ip(vx, vy)
         scrn_sfc.blit(bomb_sfc, bomb_rct)
+        if coin1_flag == True:
+            scrn_sfc.blit(coin1_sfc, coin1_rct)
+        if coin2_flag == True:
+            scrn_sfc.blit(coin2_sfc, coin2_rct)
+        if coin3_flag == True:
+            scrn_sfc.blit(coin3_sfc, coin3_rct)
+        if coin4_flag == True:
+            scrn_sfc.blit(coin4_sfc, coin4_rct)
+        if coin5_flag == True:
+            scrn_sfc.blit(coin5_sfc, coin5_rct)
+        if coin6_flag == True:
+            scrn_sfc.blit(coin6_sfc, coin6_rct)
+        if coin7_flag == True:
+            scrn_sfc.blit(coin7_sfc, coin7_rct)
+        if coin8_flag == True:
+            scrn_sfc.blit(coin8_sfc, coin8_rct)
+        if coin9_flag == True:
+            scrn_sfc.blit(coin9_sfc, coin9_rct)
+        if coin10_flag == True:
+            scrn_sfc.blit(coin10_sfc, coin10_rct)
         yoko, tate = check_bound(bomb_rct, scrn_rct)
         vx *= yoko
         vy *= tate
@@ -101,6 +222,29 @@ def main():
             clock.tick(1)
             game_over()
             return
+        
+        if tori_rct.colliderect(coin1_rct):
+            coin1_flag = False
+        if tori_rct.colliderect(coin2_rct):
+            coin2_flag = False
+        if tori_rct.colliderect(coin3_rct):
+            coin3_flag = False
+        if tori_rct.colliderect(coin4_rct):
+            coin4_flag = False
+        if tori_rct.colliderect(coin5_rct):
+            coin5_flag = False
+        if tori_rct.colliderect(coin6_rct):
+            coin6_flag = False
+        if tori_rct.colliderect(coin7_rct):
+            coin7_flag = False
+        if tori_rct.colliderect(coin8_rct):
+            coin8_flag = False
+        if tori_rct.colliderect(coin9_rct):
+            coin9_flag = False
+        if tori_rct.colliderect(coin10_rct):
+            coin10_flag = False
+
+
 
         pg.display.update()
         clock.tick(1000)

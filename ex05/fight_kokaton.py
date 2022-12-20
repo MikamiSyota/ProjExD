@@ -116,6 +116,19 @@ def load_sound(file):
         print("Warning, unable to load, %s" % file)
     return None
 
+# ゲームオーバーの処理
+def game_over():
+    #ゲームオーバー時に画像を出力する処理
+    clock = pg.time.Clock()
+    pg.display.set_caption("こうかとん、死す。")
+    scrn_sfc = pg.display.set_mode((1600, 900))
+    scrn_rct = scrn_sfc.get_rect()
+    img_sfc = pg.image.load("fig/game_over.jpg")
+    img_sfc = pg.transform.scale(img_sfc, (1600, 900))
+    img_rct = img_sfc.get_rect()
+    scrn_sfc.blit(img_sfc, img_rct)
+    pg.display.update()
+    clock.tick(0.3)
 
 def main():
     clock =pg.time.Clock()
@@ -172,6 +185,11 @@ def main():
         for i in range(len(bkd_lst)):
             bkd_lst[i].update(scr)
             if kkt.rct.colliderect(bkd_lst[i].rct):
+                # 爆弾にあたったらゲームオーバー画面を表示
+                boom_sound.play()
+                shoot_sound.play()
+                clock.tick(1)
+                game_over()
                 return
 
         # コイン追加

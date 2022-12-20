@@ -1,6 +1,7 @@
 import pygame as pg
 import random
 import sys
+import os
 
 
 class Screen:
@@ -79,6 +80,22 @@ def check_bound(obj_rct, scr_rct):
     return yoko, tate
 
 
+main_dir = os.path.split(os.path.abspath(__file__))[0]
+
+
+def load_sound(file):
+    """because pygame can be be compiled without mixer."""
+    if not pg.mixer:
+        return None
+    file = os.path.join(main_dir, "data", file)
+    try:
+        sound = pg.mixer.Sound(file)
+        return sound
+    except pg.error:
+        print("Warning, unable to load, %s" % file)
+    return None
+
+
 def main():
     clock =pg.time.Clock()
 
@@ -93,6 +110,15 @@ def main():
     bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
     bkd.update(scr)
 
+    boom_sound = load_sound("boom.wav")
+    shoot_sound = load_sound("car_door.wav")
+
+    if pg.mixer:
+        music = os.path.join(main_dir, "data", "house_lo.wav")
+        pg.mixer.music.load(music)
+        pg.mixer.music.play(-1)
+
+
     # 練習２
     while True:        
         scr.blit()
@@ -106,6 +132,9 @@ def main():
         if kkt.rct.colliderect(bkd.rct):
             return
 
+        # if pg.mixer:
+            # boom_sound.play()
+            # shoot_sound.play()
         pg.display.update()
         clock.tick(1000)
 

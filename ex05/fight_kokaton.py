@@ -65,6 +65,27 @@ class Bomb:
         self.vy *= tate
         self.blit(scr)
 
+# コイン追加クラス
+class Coin:
+    def __init__(self, color, rad, vxy, scr:Screen):
+        self.sfc = pg.Surface((2*rad, 2*rad)) # 正方形の空のSurface
+        self.sfc.set_colorkey((0, 0, 0))
+        pg.draw.circle(self.sfc, color, (rad, rad), rad)
+        self.rct = self.sfc.get_rect()
+        self.rct.centerx = random.randint(0, scr.rct.width)
+        self.rct.centery = random.randint(0, scr.rct.height)
+        self.vx, self.vy = vxy
+
+    def blit(self, scr:Screen):
+        scr.sfc.blit(self.sfc, self.rct)
+
+    def update(self, scr:Screen):
+        self.rct.move_ip(self.vx, self.vy)
+        yoko, tate = check_bound(self.rct, scr.rct)
+        self.vx *= yoko
+        self.vy *= tate
+        self.blit(scr)
+
 
 def check_bound(obj_rct, scr_rct):
     """
@@ -110,12 +131,24 @@ def main():
     bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
     bkd.update(scr)
 
+    # コイン追加
+    cin = Coin((255, 255, 0), 15, (+1, +1), scr)
+    cin.update(scr)
+
     # 爆弾追加
     bkd_lst = []
     for i in range(5):
         vx = random.choice([-1, +1])
         vy = random.choice([-1, +1])
         bkd_lst.append(Bomb("red", 10, (vx, vy), scr))
+
+    # コイン追加
+    cin_lst = []
+    cin_count = 0
+    for i in range(10):
+        x = 0
+        y = 0
+        cin_lst.append(Coin("yellow", 15, (x, y), scr))
     
     # 音楽
     boom_sound = load_sound("boom.wav")
@@ -138,8 +171,17 @@ def main():
         # 爆弾追加
         for i in range(len(bkd_lst)):
             bkd_lst[i].update(scr)
-            if kkt.rct.colliderect(bkd.rct):
+            if kkt.rct.colliderect(bkd_lst[i].rct):
                 return
+
+        # コイン追加
+        for coin in cin_lst:
+            coin.update(scr)
+            if kkt.rct.colliderect(coin.rct):
+                cin_lst.remove(coin)
+                cin_count += 1
+                if cin_count == 10:
+                    return
 
 
         # if pg.mixer:

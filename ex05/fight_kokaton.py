@@ -106,6 +106,7 @@ def check_bound(obj_rct, scr_rct):
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 
 
+# 爆発音、銃声音について定義している関数
 def load_sound(file):
     """because pygame can be be compiled without mixer."""
     if not pg.mixer:

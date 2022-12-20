@@ -42,7 +42,7 @@ class Bird:
             if check_bound(self.rct, scr.rct) != (+1, +1):
                 self.rct.centerx -= delta[0]
                 self.rct.centery -= delta[1]
-        self.blit(scr)                    
+        self.blit(scr)           
 
 
 class Bomb:
@@ -65,10 +65,11 @@ class Bomb:
         self.vy *= tate
         self.blit(scr)
 
+
 # コイン追加クラス
 class Coin:
     def __init__(self, color, rad, vxy, scr:Screen):
-        self.sfc = pg.Surface((2*rad, 2*rad)) # 正方形の空のSurface
+        self.sfc = pg.Surface((2*rad, 2*rad))
         self.sfc.set_colorkey((0, 0, 0))
         pg.draw.circle(self.sfc, color, (rad, rad), rad)
         self.rct = self.sfc.get_rect()
@@ -100,6 +101,7 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
+
 # 音楽
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 
@@ -116,6 +118,7 @@ def load_sound(file):
         print("Warning, unable to load, %s" % file)
     return None
 
+
 # ゲームオーバーの処理
 def game_over():
     #ゲームオーバー時に画像を出力する処理
@@ -129,6 +132,22 @@ def game_over():
     scrn_sfc.blit(img_sfc, img_rct)
     pg.display.update()
     clock.tick(0.3)
+
+
+# ゲームクリアの処理
+def game_clear():
+    #ゲームクリア時に画像を出力する処理
+    clock = pg.time.Clock()
+    pg.display.set_caption("こうかとん、生還。")
+    scrn_sfc = pg.display.set_mode((1600, 900))
+    scrn_rct = scrn_sfc.get_rect()
+    img_sfc = pg.image.load("fig/game_clear.jpg")
+    img_sfc = pg.transform.scale(img_sfc, (1600, 900))
+    img_rct = img_sfc.get_rect()
+    scrn_sfc.blit(img_sfc, img_rct)
+    pg.display.update()
+    clock.tick(0.3)
+
 
 def main():
     clock =pg.time.Clock()
@@ -171,7 +190,6 @@ def main():
         pg.mixer.music.load(music)
         pg.mixer.music.play(-1)
 
-
     # 練習２
     while True:        
         scr.blit()
@@ -199,12 +217,10 @@ def main():
                 cin_lst.remove(coin)
                 cin_count += 1
                 if cin_count == 10:
+                    clock.tick(1)
+                    game_clear()
                     return
-
-
-        # if pg.mixer:
-            # boom_sound.play()
-            # shoot_sound.play()
+                    
         pg.display.update()
         clock.tick(1000)
 

@@ -79,7 +79,7 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
-
+# 音楽
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 
 
@@ -110,9 +110,16 @@ def main():
     bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
     bkd.update(scr)
 
+    # 爆弾追加
+    bkd_lst = []
+    for i in range(5):
+        vx = random.choice([-1, +1])
+        vy = random.choice([-1, +1])
+        bkd_lst.append(Bomb("red", 10, (vx, vy), scr))
+    
+    # 音楽
     boom_sound = load_sound("boom.wav")
     shoot_sound = load_sound("car_door.wav")
-
     if pg.mixer:
         music = os.path.join(main_dir, "data", "house_lo.wav")
         pg.mixer.music.load(music)
@@ -128,9 +135,12 @@ def main():
                 return
 
         kkt.update(scr)
-        bkd.update(scr)
-        if kkt.rct.colliderect(bkd.rct):
-            return
+        # 爆弾追加
+        for i in range(len(bkd_lst)):
+            bkd_lst[i].update(scr)
+            if kkt.rct.colliderect(bkd.rct):
+                return
+
 
         # if pg.mixer:
             # boom_sound.play()
